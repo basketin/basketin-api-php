@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 use Basketin\Api\BasketinApiClient;
 use Basketin\Api\Config;
@@ -13,8 +15,6 @@ final class ClientTest extends TestCase
         ]);
         $client = new BasketinApiClient($config);
 
-        $client->basket;
-
         $this->assertEquals(
             'aVKFf8Akmy8OnRyN',
             $client->basket
@@ -27,8 +27,6 @@ final class ClientTest extends TestCase
             'token' => 'YvmIRorPGyT8iIlpZz2C1wiymJs9LmONvczd4KHOW1IaSpgWwDyuKMNqGx63u3fW',
         ]);
         $client = new BasketinApiClient($config);
-
-        $client->basket;
 
         $this->assertEquals(
             'YvmIRorPGyT8iIlpZz2C1wiymJs9LmONvczd4KHOW1IaSpgWwDyuKMNqGx63u3fW',
