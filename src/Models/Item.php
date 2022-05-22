@@ -8,4 +8,9 @@ class Item extends Model
     {
         $this->callRequest('/add-to-cart', $data);
     }
+
+    public function destroy(array $data = [])
+    {
+        $this->callRequest('/remove-from-cart', $data);
+    }
 }
