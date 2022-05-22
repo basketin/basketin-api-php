@@ -1,13 +1,17 @@
 <?php declare(strict_types=1);
 
 use Basketin\Api\BasketinApiClient;
+use Basketin\Api\Config;
 use PHPUnit\Framework\TestCase;
 
 final class ClientTest extends TestCase
 {
     public function testBasketBasket(): void
     {
-        $client = new BasketinApiClient('aVKFf8Akmy8OnRyN');
+        $config = new Config([
+            'basket' => 'aVKFf8Akmy8OnRyN',
+        ]);
+        $client = new BasketinApiClient($config);
 
         $client->basket;
 
@@ -19,7 +23,10 @@ final class ClientTest extends TestCase
 
     public function testBasketToken(): void
     {
-        $client = new BasketinApiClient('aVKFf8Akmy8OnRyN', 'YvmIRorPGyT8iIlpZz2C1wiymJs9LmONvczd4KHOW1IaSpgWwDyuKMNqGx63u3fW');
+        $config = new Config([
+            'token' => 'YvmIRorPGyT8iIlpZz2C1wiymJs9LmONvczd4KHOW1IaSpgWwDyuKMNqGx63u3fW',
+        ]);
+        $client = new BasketinApiClient($config);
 
         $client->basket;
 
