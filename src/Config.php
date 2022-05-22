@@ -3,6 +3,7 @@
 namespace Basketin\Api;
 
 use ArrayAccess;
+use Basketin\Api\Http\HttpClient;
 
 class Config implements ArrayAccess
 {
@@ -19,10 +20,13 @@ class Config implements ArrayAccess
     private function configDefaults()
     {
         return [
-            'base_url' => 'https://basketin.test/webhook/',
+            'baseUrl' => 'https://basketin.test/webhook/',
             'platform' => null,
             'basket' => null,
             'token' => null,
+            'cartHash' => null,
+
+            'httpClient' => HttpClient::class,
         ];
     }
 
