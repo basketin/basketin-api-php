@@ -1,0 +1,17 @@
+{
+    "name": "basketin/basketin-api-php",
+    "description": "Monitoring and analyzing the shopping carts of customers, knowing the abandoned carts, and taking effective action with it.",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Basketin\\Api\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Karim Mohamed",
+            "email": "komicho1996@gmail.com"
+        }
+    ],
+    "require": {}
+}
