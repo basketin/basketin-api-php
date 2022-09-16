@@ -20,7 +20,7 @@ class Config implements ArrayAccess
     private function configDefaults()
     {
         return [
-            'baseUrl' => 'https://basketin.test/webhook/',
+            'baseUrl' => 'https://basketin.net/webhook/',
             'platform' => null,
             'basket' => null,
             'token' => null,
