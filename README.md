@@ -11,6 +11,8 @@ composer require basketin/basketin-api-php
 ### Set config
 
 ```php
+use Basketin\Api\Config;
+
 $config = new Config([
     'platform' => '<platform:string>',
     'basket' => '<basket_key:string>',
@@ -22,6 +24,8 @@ $config = new Config([
 ### Create an instance of the client
 
 ```php
+use Basketin\Api\BasketinApiClient;
+
 $client = new BasketinApiClient($config);
 ```
 
@@ -45,7 +49,7 @@ $client->item->create([
 
 ```php
 $client->item->destroy([
-    'product_id' => 1,
+    'product_id' => <product_id:int>,
 ]);
 ```
 
@@ -59,7 +63,7 @@ $client->cart->update([
         'product_id' => <product_id:int>,
         'quantity' => <quantity:int>,
     ]
-])
+]);
 ```
 
 ### Checkout model
