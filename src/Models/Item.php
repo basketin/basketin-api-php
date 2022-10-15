@@ -6,11 +6,11 @@ class Item extends Model
 {
     public function create(array $data = [])
     {
-        $this->callRequest('/add-to-cart', $data);
+        return $this->callRequest('/cart/add-item', $data);
     }
 
-    public function destroy(array $data = [])
+    public function remove(array $data = [])
     {
-        $this->callRequest('/remove-from-cart', $data);
+        return $this->callRequest('/cart/remove-item', $data);
     }
 }

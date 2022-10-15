@@ -20,11 +20,10 @@ class Config implements ArrayAccess
     private function configDefaults()
     {
         return [
-            'baseUrl' => 'https://basketin.net/webhook/',
-            'platform' => null,
+            'baseUrl' => 'https://basketin.net/remote/events',
             'basket' => null,
             'token' => null,
-            'cartHash' => null,
+            'customer_identity' => null,
 
             'httpClient' => HttpClient::class,
         ];

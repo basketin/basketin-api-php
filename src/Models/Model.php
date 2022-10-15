@@ -3,7 +3,7 @@
 namespace Basketin\Api\Models;
 
 use Basketin\Api\Config;
-use Basketin\Api\Http\Contracts\iCartHashGetterSetter;
+use Basketin\Api\Http\Contracts\iCustomerIdentityGetterSetter;
 use Basketin\Api\Http\Contracts\iRequest;
 use Basketin\Api\Http\Contracts\iTokenGetterSetter;
 use Exception;
@@ -15,7 +15,7 @@ abstract class Model
 
     public function __construct(Config $config)
     {
-        $this->fullUrl = $config->baseUrl . $config->platform . '/' . $config->basket;
+        $this->fullUrl = $config->baseUrl . '/' . $config->basket;
 
         $this->httpClient = new $config->httpClient;
 
@@ -27,12 +27,12 @@ abstract class Model
             throw new Exception('Http client must implement iTokenGetterSetter');
         }
 
-        if (!$this->httpClient instanceof iCartHashGetterSetter) {
-            throw new Exception('Http client must implement iCartHashGetterSetter');
+        if (!$this->httpClient instanceof iCustomerIdentityGetterSetter) {
+            throw new Exception('Http client must implement iCustomerIdentityGetterSetter');
         }
 
         $this->httpClient->setToken($config->token);
-        $this->httpClient->setCartHash($config->cartHash);
+        $this->httpClient->setCustomerIdentity($config->customer_identity);
     }
 
     public function callRequest($uri, $data = [])

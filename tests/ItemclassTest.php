@@ -29,6 +29,6 @@ final class ItemclassTest extends TestCase
         $config = new Config();
         $client = new BasketinApiClient($config);
 
-        $this->assertTrue(method_exists($client->item, 'destroy'), 'Item class not have destroy method');
+        $this->assertTrue(method_exists($client->item, 'remove'), 'Item class not have destroy method');
     }
 }

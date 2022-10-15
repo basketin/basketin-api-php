@@ -2,14 +2,14 @@
 
 namespace Basketin\Api\Http;
 
-use Basketin\Api\Http\Contracts\iCartHashGetterSetter;
+use Basketin\Api\Http\Contracts\iCustomerIdentityGetterSetter;
 use Basketin\Api\Http\Contracts\iRequest;
 use Basketin\Api\Http\Contracts\iTokenGetterSetter;
 
-class HttpClient implements iRequest, iTokenGetterSetter, iCartHashGetterSetter
+class HttpClient implements iRequest, iTokenGetterSetter, iCustomerIdentityGetterSetter
 {
     public $token;
-    public $cartHash;
+    public $customerIdentity;
 
     /**
      * Get the value of token
@@ -34,9 +34,9 @@ class HttpClient implements iRequest, iTokenGetterSetter, iCartHashGetterSetter
     /**
      * Get the value of cartHash
      */
-    public function getCartHash()
+    public function getCustomerIdentity()
     {
-        return $this->cartHash;
+        return $this->customerIdentity;
     }
 
     /**
@@ -44,9 +44,9 @@ class HttpClient implements iRequest, iTokenGetterSetter, iCartHashGetterSetter
      *
      * @return  self
      */
-    public function setCartHash($cartHash)
+    public function setCustomerIdentity($customerIdentity)
     {
-        $this->cartHash = $cartHash;
+        $this->customerIdentity = $customerIdentity;
 
         return $this;
     }
@@ -60,7 +60,7 @@ class HttpClient implements iRequest, iTokenGetterSetter, iCartHashGetterSetter
         curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'Content-Type: application/json',
             'Authorization: Bearer ' . $this->getToken(),
-            'X-cart-hash: ' . $this->getCartHash(),
+            'X-basketin-customer-identity: ' . $this->getCustomerIdentity(),
         ]);
         $response = curl_exec($ch);
         curl_close($ch);

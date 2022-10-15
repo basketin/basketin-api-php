@@ -14,10 +14,9 @@ composer require basketin/basketin-api-php
 use Basketin\Api\Config;
 
 $config = new Config([
-    'platform' => '<platform:string>',
     'basket' => '<basket_key:string>',
     'token' => '<token:string>',
-    'cartHash' => '<cartHash:string>',
+    'customer_identity' => '<customer_identity:string>',
 ]);
 ```
 
@@ -35,12 +34,12 @@ $client = new BasketinApiClient($config);
 
 ```php
 $client->item->create([
-    'product_id' => <product_id:int>,
     'quantity' => <quantity:int>,
     'price' => <price:decimal>,
     'product' => [
+        'increment_id' => <product_id:int>,
         'name' => '<quantity:string>',
-        'image_url' => '<image_url:string>',
+        'image' => '<image_url:string>',
     ],
 ]);
 ```
@@ -49,32 +48,8 @@ $client->item->create([
 
 ```php
 $client->item->destroy([
-    'product_id' => <product_id:int>,
-]);
-```
-
-### Cart model
-
-#### Update cart items
-
-```php
-$client->cart->update([
-    [
-        'product_id' => <product_id:int>,
-        'quantity' => <quantity:int>,
-    ]
-]);
-```
-
-### Checkout model
-
-#### Make checkout
-
-```php
-$client->checkout->thankyou([
-    'name' => '<name:string>',
-    'email' => '<email:string>',
-    'phone' => '<phone:string>',
-    'country' => '<country:string>',
+    'product' => [
+        'increment_id' => <product_id:int>,
+    ],
 ]);
 ```

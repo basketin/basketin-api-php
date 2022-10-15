@@ -17,7 +17,7 @@ final class ClientTest extends TestCase
 
         $this->assertEquals(
             'aVKFf8Akmy8OnRyN',
-            $client->basket
+            $client->config->basket
         );
     }
 
@@ -30,7 +30,7 @@ final class ClientTest extends TestCase
 
         $this->assertEquals(
             'YvmIRorPGyT8iIlpZz2C1wiymJs9LmONvczd4KHOW1IaSpgWwDyuKMNqGx63u3fW',
-            $client->token
+            $client->config->token
         );
     }
 }
